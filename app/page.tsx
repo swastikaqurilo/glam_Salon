@@ -5,6 +5,9 @@ import Header from "@/components/header";
 import Footer from "@/components/footer";
 import BookingModal from "@/components/bookingmodal";
 
+const iconClass =
+  "h-[3.8vw] w-[3.8vw] shrink-0 text-[#C9A063] sm:h-5 sm:w-5 lg:h-[22px] lg:w-[22px]";
+
 const services = [
   {
     title: "BEAUTY & GROOMING",
@@ -246,95 +249,141 @@ export default function Home() {
         onClose={() => setIsModalOpen(false)} 
       />
       
-      <section
-        id="home"
-        className="relative flex min-h-[690px] flex-col overflow-hidden bg-[#17130F] text-white sm:min-h-[780px] lg:min-h-[760px]"
+<section
+  id="home"
+  className="relative flex min-h-[175vw] flex-col overflow-hidden bg-[#17130F] text-white sm:min-h-[760px]"
+  style={{ fontFamily: "'Cormorant Garamond', serif" }}
+>
+  {/* Background image */}
+  <div
+    className="absolute inset-0 bg-cover bg-[position:75%_center] lg:bg-center"
+    style={{ backgroundImage: "url('/images/hero.png')" }}
+  />
+
+  {/* Overlays */}
+  <div className="absolute inset-0 bg-black/30" />
+  <div className="absolute inset-0 bg-gradient-to-r from-black/55 via-black/20 to-black/5" />
+  <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/35 lg:hidden" />
+
+  {/* Header */}
+  <div className="relative z-20">
+    <Header onBookClick={() => setIsModalOpen(true)} />
+  </div>
+
+  {/* Hero content */}
+  <div className="relative z-10 mx-auto flex w-full max-w-[1440px] flex-1 flex-col px-[7.6vw] pb-[15vw] pt-[4vw] sm:px-12 sm:pb-10 lg:justify-center lg:px-20 lg:py-0">
+    {/* Left content */}
+    <div className="w-full min-w-0 max-w-4xl">
+      {/* Badge */}
+      <div className="mb-[3vw] inline-flex h-[8.8vw] items-center gap-[1.8vw] rounded-[2vw] border border-[#E7C988]/50 bg-[#17130F]/40 px-[2.8vw] backdrop-blur-sm sm:mb-5 sm:h-9 sm:gap-2 sm:rounded-lg sm:px-3.5 lg:mb-[18px] lg:rounded-[5px]">
+        <svg
+          className="h-[3.6vw] w-[3.6vw] text-[#E7C988] sm:h-3.5 sm:w-3.5"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M14.121 14.121L19 19m-7-7l7-7m-7 7l-2.879 2.879M12 12L9.121 9.121m0 5.758a3 3 0 10-4.243 4.243 3 3 0 004.243-4.243zm0-9.516a3 3 0 10-4.243-4.243 3 3 0 004.243 4.243z" />
+        </svg>
+        <span className="text-[4.6vw] italic leading-none text-[#E7C988] sm:text-[20px]">
+          Unisex salon
+        </span>
+      </div>
+
+      {/* Headline */}
+      <h1
+        className="text-[8.2vw] font-normal not-italic uppercase leading-[1.3] tracking-[-0.0117em] text-[#F8F1E7] sm:text-[56px] sm:leading-none lg:text-[96px]"
+        style={{ fontFamily: "'Cormorant Garamond', serif", fontWeight: 400 }}
       >
-        {/* Background image */}
+        <span className="block whitespace-nowrap">BEAUTY, TAILORED</span>
+        <span className="block whitespace-nowrap">
+          TO <span className="text-[#B58F55]">YOU</span>.
+        </span>
+      </h1>
+
+      {/* Subtitle */}
+      <p className="mt-[3.5vw] text-[5vw] italic leading-[1.3] text-white/90 sm:mt-3 sm:text-[26px] lg:text-[28px]">
+        Expert care. Personalised experiences.
+      </p>
+
+      {/* Buttons */}
+      <div className="mt-[17vw] flex flex-col items-start gap-[2.2vw] sm:mt-14 sm:gap-2 lg:mt-[45px] lg:flex-row lg:gap-2">
+        <button
+          onClick={() => setIsModalOpen(true)}
+          className="ml-[3.8vw] flex h-[11vw] w-[70vw] items-center justify-center gap-2 rounded-[1.6vw] bg-[#F5EBDE] text-[3vw] font-medium uppercase tracking-[0.15em] text-[#17130F] transition hover:bg-[#E7C988] sm:ml-4 sm:h-12 sm:w-[290px] sm:rounded-lg sm:text-[12.5px] lg:ml-0 lg:w-[363px] lg:rounded-none"
+        >
+          Book an Appointment <span aria-hidden="true">→</span>
+        </button>
+
+        <a
+          href="#services"
+          className="ml-[3.8vw] flex h-[11.5vw] w-[53vw] items-center justify-center gap-2 rounded-[1.6vw] border border-[#F1E2CC]/70 bg-black/20 text-[3vw] font-medium uppercase tracking-[0.15em] text-[#F5EBDE] transition hover:border-[#E7C988] hover:text-[#E7C988] sm:ml-4 sm:h-12 sm:w-[222px] sm:rounded-lg sm:text-[12.5px] lg:ml-0 lg:bg-transparent lg:rounded-none"
+        >
+          Explore Services <span aria-hidden="true">→</span>
+        </a>
+      </div>
+    </div>
+
+    {/* Feature cards */}
+    <div className="mt-auto grid w-full grid-cols-2 gap-x-[1.9vw] gap-y-[4.4vw] px-[1.3vw] pt-[10vw] sm:gap-x-3 sm:gap-y-4 sm:px-0 sm:pt-10 lg:absolute lg:bottom-6 lg:right-6 lg:mt-0 lg:w-[178px] lg:grid-cols-1 lg:gap-y-[14px] lg:pt-0 xl:right-10">
+      {[
+        {
+          title: "Expert Stylists",
+          icon: (
+            <svg className={iconClass} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.4} strokeLinecap="round" strokeLinejoin="round">
+              <path d="M12 21c-4.5-2.5-6-6-6-9 2.5.3 4.5 1.5 6 3.5 1.5-2 3.5-3.2 6-3.5 0 3-1.5 6.5-6 9z" />
+              <path d="M12 15.5C10.5 12 10.5 8 12 4c1.5 4 1.5 8 0 11.5z" />
+            </svg>
+          ),
+        },
+        {
+          title: "Premium Products",
+          icon: (
+            <svg className={iconClass} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.4} strokeLinecap="round" strokeLinejoin="round">
+              <rect x="4" y="10" width="9" height="11" rx="1.5" />
+              <path d="M6 10V7h5v3M11 7h3.5l1-1.5" />
+              <path d="M18 5h.01M20 8h.01M18 10.5h.01" strokeWidth={2} />
+            </svg>
+          ),
+        },
+        {
+          title: "Hygiene First",
+          icon: (
+            <svg className={iconClass} fill="currentColor" viewBox="0 0 24 24">
+              <circle cx="12" cy="7" r="3.2" />
+              <circle cx="7" cy="16" r="3.2" />
+              <circle cx="17" cy="16" r="3.2" />
+            </svg>
+          ),
+        },
+        {
+          title: "Personalized Care",
+          icon: (
+            <svg className={iconClass} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.4} strokeLinecap="round" strokeLinejoin="round">
+              <path d="M12 12.5c-2.5-1.8-4-3-4-4.7A2.3 2.3 0 0112 6.6a2.3 2.3 0 014 1.2c0 1.7-1.5 2.9-4 4.7z" />
+              <path d="M3 16c2 0 3 1.5 5 1.5h4.5a1.5 1.5 0 000-3H10M12.5 15.5l4-1.5c1.5-.5 3 .5 3.5 1.5l-5.5 4.5H8" />
+            </svg>
+          ),
+        },
+      ].map((feature) => (
         <div
-          className="absolute inset-0 bg-cover bg-center"
-          style={{
-            backgroundImage: "url('/images/hero.png')",
-            filter: "brightness(1.2)",
-          }}
-        />
-
-        {/* Overlays */}
-        <div className="absolute inset-0 bg-black/20" />
-        <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-black/15 to-black/25" />
-
-        {/* Header */}
-        <div className="relative z-20">
-          <Header onBookClick={() => setIsModalOpen(true)} />
+          key={feature.title}
+          className="flex h-[14vw] items-center justify-center gap-[1.4vw] rounded-[3vw] border border-white/20 bg-[#2B241D]/55 backdrop-blur-md transition hover:border-[#B58F55] sm:h-14 sm:gap-2 sm:rounded-2xl lg:h-[90px] lg:w-[178px] lg:gap-2 lg:rounded-[18px]"
+        >
+          {feature.icon}
+          <span className="whitespace-nowrap text-[2.7vw] font-normal text-[#D1AD6E] sm:text-xs lg:text-[15px]">
+            {feature.title}
+          </span>
         </div>
+      ))}
+    </div>
+  </div>
 
-        {/* Hero content */}
-        <div className="relative z-10 mx-auto flex w-full max-w-[1440px] flex-1 items-start px-6 pt-[58px] pb-12 sm:items-center sm:px-10 sm:py-16 lg:px-14 lg:py-20">
-          <div className="grid w-full grid-cols-1 items-start gap-0 lg:grid-cols-[minmax(0,1fr)_250px] lg:items-center lg:gap-12">
-
-            {/* Left content */}
-            <div className="w-full min-w-0 max-w-3xl">
-              <div className="mb-4 inline-flex items-center rounded-md border border-[#F1E2CC] px-3 py-1.5 sm:mb-6 sm:px-4 sm:py-2">
-                <span className="font-heading text-sm italic text-[#E7C988]">
-                  Unisex salon
-                </span>
-              </div>
-
-              <h1
-                className="font-heading text-[clamp(2rem,7vw,96px)] font-normal uppercase leading-none tracking-[-1.12px]"
-                style={{ fontFamily: "Cormorant Garamond, serif" }}
-              >
-                <span className="whitespace-nowrap">BEAUTY, TAILORED</span>
-                <br />
-                TO <span className="italic text-[#B58F55]">YOU</span>.
-              </h1>
-
-              <p className="mt-5 whitespace-nowrap font-heading text-[15px] italic text-white/90 sm:mt-6 sm:text-2xl">
-                Expert care. Personalised experiences.
-              </p>
-
-            {/* Buttons */}
-            <div className="mt-[70px] flex w-full flex-col items-start gap-4 sm:mt-9 sm:flex-row sm:flex-wrap sm:items-start sm:gap-2">
-              <button
-                onClick={() => setIsModalOpen(true)}
-                className="inline-flex min-h-[52px] w-full max-w-[300px] items-center justify-center gap-2 bg-[#F5EBDE] px-6 py-4 text-[12px] font-bold tracking-[0.12em] !text-black transition hover:bg-[#E7C988] sm:min-h-[42px] sm:w-auto sm:max-w-none sm:px-7 sm:py-3 sm:text-[10px] sm:font-medium sm:tracking-[0.14em]"
-              >
-                BOOK AN APPOINTMENT <span aria-hidden="true">→</span>
-              </button>
-
-              <a
-                href="#services"
-                className="inline-flex min-h-[52px] w-full max-w-[200px] items-center justify-center gap-1.5 border border-white/60 bg-black/20 px-2 py-4 text-center text-[10px] font-bold leading-tight tracking-[0.08em] text-white transition hover:border-[#E7C988] hover:text-[#E7C988] sm:min-h-[42px] sm:w-auto sm:max-w-none sm:gap-2 sm:bg-transparent sm:px-7 sm:py-3 sm:text-[10px] sm:font-medium sm:leading-normal sm:tracking-[0.14em]"
-              >
-                EXPLORE SERVICES <span aria-hidden="true">→</span>
-              </a>
-            </div>
-            </div>
-
-            {/* Feature cards – icons & desktop completely unchanged */}
-            <div className="absolute bottom-[25px] left-1/2 z-20 grid w-[calc(100%-40px)] max-w-[320px] -translate-x-1/2 grid-cols-2 gap-3 lg:bottom-7 lg:left-auto lg:right-[2%] lg:w-[210px] lg:max-w-none lg:translate-x-0">
-              {[
-                { icon: "♧", title: "Expert Stylists" },
-                { icon: "♙", title: "Premium Products" },
-                { icon: "✣", title: "Hygiene First" },
-                { icon: "♧", title: "Personalized Care" },
-              ].map((feature) => (
-                <div
-                  key={feature.title}
-                  className="flex h-[76px] flex-col items-center justify-center gap-1 rounded-lg border border-white/20 bg-[#211B16]/80 px-2 backdrop-blur-sm transition hover:border-[#B58F55] lg:h-[76px] lg:flex-row lg:justify-start lg:gap-3 lg:rounded-xl lg:px-4"
-                >
-                  <span className="shrink-0 text-lg text-[#B58F55] lg:text-xl">
-                    {feature.icon}
-                  </span>
-                  <span className="whitespace-nowrap text-[10px] text-[#D6AD67] lg:text-[14px]">
-                    {feature.title}
-                  </span>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
+  {/* Scroll indicator (sirf desktop) */}
+  <div className="absolute bottom-6 left-1/2 z-20 hidden -translate-x-1/2 flex-col items-center gap-2 opacity-80 transition hover:opacity-100 lg:flex">
+    <span className="text-[12px] tracking-[0.2em] text-white/85">SCROLL</span>
+    <div className="h-12 w-px bg-gradient-to-b from-white/80 to-transparent" />
+  </div>
+</section>
 
       {/* ABOUT */}
       <section
