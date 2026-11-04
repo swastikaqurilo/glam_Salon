@@ -119,15 +119,14 @@ export default function AcademyPage() {
 
           {/* Buttons */}
           <div className="mt-7 flex w-full flex-col items-stretch justify-center gap-3 sm:mt-10 sm:w-auto sm:flex-row sm:items-center sm:gap-4">
-            <a
+           <a
               href="#categories"
-              className="inline-flex w-full max-w-[300px] items-center justify-center gap-2 bg-[#F2E6CB] px-6 py-4 text-[12px] font-bold tracking-[0.12em] !text-black transition-colors hover:bg-[#C5A059] sm:w-auto sm:max-w-none sm:px-7 sm:py-3.5 sm:text-[11px] sm:tracking-[0.14em]"
+              className="mx-auto inline-flex w-full max-w-[300px] items-center justify-center gap-2 bg-[#F2E6CB] px-6 py-4 text-[12px] font-bold tracking-[0.12em] !text-black transition-colors hover:bg-[#C5A059] sm:mx-0 sm:w-auto sm:max-w-none sm:px-7 sm:py-3.5 sm:text-[11px] sm:tracking-[0.14em]"
             >
               EXPLORE SERVICES
-             <svg width="8" height="8" viewBox="0 0 8 8" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M5.875 5.375V2.125H2.625M5.875 2.125L2.125 5.875" stroke-linecap="round" stroke-linejoin="round" stroke="black"/>
+              <svg width="8" height="8" viewBox="0 0 8 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M5.875 5.375V2.125H2.625M5.875 2.125L2.125 5.875" stroke-linecap="round" stroke-linejoin="round" stroke="black"/>
               </svg>
-
             </a>
 
             {/* <a

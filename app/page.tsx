@@ -312,7 +312,7 @@ export default function Home() {
             </div>
 
             {/* Feature cards – icons & desktop completely unchanged */}
-            <div className="absolute bottom-[50px] left-1/2 z-20 grid w-[calc(100%-40px)] max-w-[320px] -translate-x-1/2 grid-cols-2 gap-3 lg:bottom-7 lg:left-auto lg:right-[2%] lg:w-[210px] lg:max-w-none lg:translate-x-0 lg:grid-cols-1">
+            <div className="absolute bottom-[25px] left-1/2 z-20 grid w-[calc(100%-40px)] max-w-[320px] -translate-x-1/2 grid-cols-2 gap-3 lg:bottom-7 lg:left-auto lg:right-[2%] lg:w-[210px] lg:max-w-none lg:translate-x-0">
               {[
                 { icon: "♧", title: "Expert Stylists" },
                 { icon: "♙", title: "Premium Products" },
